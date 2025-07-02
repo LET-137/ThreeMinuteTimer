@@ -1,25 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
 body {
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.timer-container {
+    position: relative;
+    margin-bottom: 40px;
+    width: 250px;
+    height: 250px;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring__bg {
+    fill: transparent;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 10;
+}
+
+.progress-ring__circle {
+    transition: stroke-dashoffset 0.3s, stroke 0.5s;
+    transform-origin: 50% 50%;
+    stroke-width: 10;
+    stroke-linecap: round;
+    fill: transparent;
 }
 
 #timer-display {
-    font-size: 48px;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    transition: transform 0.2s;
 }
 
-#progress-bar {
-    width: 80%;
-    height: 30px;
-    margin-bottom: 20px;
+#timer-display.pulsing {
+    animation: pulse 1s infinite;
 }
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.05); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
 
 #start-button {
-    font-size: 24px;
-    padding: 10px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: 2px solid white;
+    border-radius: 50px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    outline: none;
+}
+
+#start-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+#start-button:active {
+    transform: translateY(0);
 }
