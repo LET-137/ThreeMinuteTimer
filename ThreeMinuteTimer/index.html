@@ -8,8 +8,13 @@
 </head>
 <body>
     <h1>3分タイマー</h1>
-    <div id="timer-display">03:00</div>
-    <progress id="progress-bar" max="180" value="0"></progress>
+    <div class="timer-container">
+        <svg class="progress-ring" width="250" height="250">
+            <circle class="progress-ring__bg" r="115" cx="125" cy="125"/>
+            <circle class="progress-ring__circle" r="115" cx="125" cy="125"/>
+        </svg>
+        <div id="timer-display">03:00</div>
+    </div>
     <button id="start-button">スタート</button>
 
     <script src="script.js"></script>
